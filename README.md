@@ -4,12 +4,9 @@ A small Tkinter desktop app that lets you keep only the columns you want in a CS
 
 ## What it does
 - Opens a `.csv` file
-- Reads the header row
-- Shows all column names as checkboxes
+- Reads the header row (1st column)
+- Shows all column names as checkboxes (select the ones u want in your new file)
 - Writes a new CSV containing only the selected columns
-
-## Why this exists
-Instead of editing the CSV manually (or building a script every time), you can quickly select the columns to keep and export a cleaned file.
 
 ## What works
 - Loads headers from the first row (whitespace is stripped)
@@ -18,15 +15,15 @@ Instead of editing the CSV manually (or building a script every time), you can q
 - Output file is saved next to the input with a `_processed` suffix
 
 ## How to run
-1. Make sure you have Python installed.
+1. Make sure you have Python installed. (tkinter , os)
 2. Run:
    ```bash
    python app.py
    ```
 
-3. or dist\ app.exe
+3. or dist\ app.exe (to build .exe file pyinstaller --noconsole --onefile --icon=icon.ico app.py , if you dont have an icon, win will give automatically)
 
-Using App: In the app:
+Using App:
    - Click **browse** and choose a CSV
    - Select the columns to keep
    - Click **process dataset**
