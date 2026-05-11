@@ -17,7 +17,7 @@ class CSVCleanerApp(tk.Tk):
         self._build_ui()
 
     def _build_ui(self):
-        file_frame = ttk.LabelFrame(self, text="select a file (csv format)", padding=10)
+        file_frame = ttk.LabelFrame(self, text="select a file (csv/ json format)", padding=10)
         file_frame.pack(fill="x", padx=15, pady=10)
 
         self.entry_file = ttk.Entry(file_frame, width=40)
@@ -62,7 +62,15 @@ class CSVCleanerApp(tk.Tk):
         status_bar.pack(side="bottom", fill="x")
 
     def _on_browse(self):
-        file_selected = filedialog.askopenfilename(title="open csv file ", filetypes = [("csv files", "*.csv"), ("all files", "*.*")])
+        file_selected = filedialog.askopenfilename(
+            title="Open CSV or JSON File",
+            filetypes=[
+                ("Data Files", "*.csv;*.json"), # Shows both in the list
+                ("CSV Files", "*.csv"),
+                ("JSON Files", "*.json"),
+                ("All Files", "*.*")
+            ]
+        )
 
         if file_selected:
             self.file_path = file_selected
